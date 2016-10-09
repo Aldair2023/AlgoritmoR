@@ -21,6 +21,11 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        JButton botonesH[]={cmdCrear, cmdLimpiar};
+        JButton botonesD[]={cmdManual,cmdAuto,cmdOperacion};
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
     }
 
     /**
@@ -159,12 +164,13 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 390, 210));
 
-        cmbCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "RecorridoUno", "RecorridoDos", "RecorridoTres", "RecorridoCuatro", "RecorridoCinco", " " }));
+        cmbCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "RecorridoUno", "RecorridoDos", "RecorridoTres", "RecorridoCuatro", "RecorridoCinco" }));
         jPanel1.add(cmbCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 100, 50));
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 14))); // NOI18N
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtResultado.setEditable(false);
         txtResultado.setColumns(20);
         txtResultado.setRows(5);
         jScrollPane3.setViewportView(txtResultado);
@@ -222,8 +228,10 @@ public class Principal extends javax.swing.JFrame {
 
         txtFilas.setText("");
         txtColumnas.setText("");
+        txtResultado.setText("");
         txtFilas.requestFocusInWindow();
         cmbCombo.setSelectedIndex(0);
+        
 
         JButton botonesH[] = {cmdCrear, cmdLimpiar};
         JButton botonesD[] = {cmdAuto, cmdManual, cmdOperacion};
@@ -377,8 +385,23 @@ public class Principal extends javax.swing.JFrame {
 
         switch (op) {
             case 0: //Letra_B
-            Helper.LetraB(tblTablaInicial, tblTablaResultado);
+            txtResultado.setText(Helper.recorridoTres(tblTablaInicial));
+            if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
+                Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor los recorridos requeridos", "Aviso", 1);
+                Helper.tablaPorDefecto(tblTablaInicial);
+                Helper.tablaPorDefecto(tblTablaResultado);
+                txtFilas.setText("");
+                txtColumnas.setText("");
+                txtResultado.setText("");
+                txtFilas.requestFocusInWindow();
+                cmbCombo.setSelectedIndex(0);
+                JButton botonesH[] = {cmdLimpiar, cmdCrear};
+                JButton botonesD[] = {cmdOperacion, cmdAuto, cmdManual};
+                Helper.habilitarBotones(botonesH);
+                Helper.deshabilitarBotones(botonesD);
+            }
             break;
+            /*
             case 1: //Letra_K
             Helper.LetraK(tblTablaInicial, tblTablaResultado);
             if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
@@ -516,7 +539,9 @@ public class Principal extends javax.swing.JFrame {
             }
             Helper.Rombo(tblTablaInicial, tblTablaResultado);
             break;
-
+/*
+            
+            */
         }
     }//GEN-LAST:event_cmdOperacionActionPerformed
 

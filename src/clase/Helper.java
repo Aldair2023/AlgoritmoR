@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
  * @author aldair
  */
 public class Helper {
+
     public static int mensaje(Component ventana, String info, String titulo, int tipo) {
         int retorno = -1;
         switch (tipo) {
@@ -73,25 +74,61 @@ public class Helper {
         tm.setRowCount(0);
 
     }
-    
-    public static int[][] PasarDatos(JTable tabla){
+
+    public static int[][] PasarDatos(JTable tabla) {
         int nFilas, nColumnas;
-        
+
         nFilas = tabla.getRowCount();
         nColumnas = tabla.getColumnCount();
-        
+
         int m[][] = new int[nFilas][nColumnas];
-        
+
         for (int i = 0; i < m.length; i++) {
             for (int j = 0; j < m[0].length; j++) {
-                
-                m[nFilas][nColumnas] = (int) tabla.getValueAt(i, j);
+
+                m[i][j] = (int) tabla.getValueAt(i, j);
             }
-            
+
         }
         return m;
-    } 
+    }
+
+    public static String recorridoHaciaDerecha(int[][] m, int i, int in, int fin) {
+        String aux = "";
+        for (int j = in; j <= fin; j++) {
+            aux = aux + m[i][j] + ", ";
+        }
+        return aux;
+    }
+
+    public static String recorridoHaciaAbajo(int[][] m, int j, int in, int fin) {
+        String aux = "";
+        for (int i = in; i <= fin; i++) {
+            aux = aux + m[i][j] + ", ";
+        }
+        return aux;
+    }
+    public static String recorridoHaciaIzquierda(int[][] m, int i, int in, int fin) {
+        String aux = "";
+        for (int j = in; j >= fin; j--) {
+            aux = aux + m[i][j] + ", ";
+        }
+        return aux;
+    }
     
-    
-    
+    public static String recorridoTres(JTable tabla) {
+        int m[][] = PasarDatos(tabla);
+        int nf = m.length;
+        int nc = m[0].length;
+        String aux = "";
+
+        aux = aux + Helper.recorridoHaciaDerecha(m, 0, 0, nc - 1);
+        aux = aux + Helper.recorridoHaciaAbajo(m, nf-1,1, nf/2);
+        aux = aux + Helper.recorridoHaciaIzquierda(m, nf/2, nc-2, 0);
+        aux = aux + Helper.recorridoHaciaAbajo(m, 0, (nf/2+1), nf-1);
+        aux = aux + Helper.recorridoHaciaDerecha(m, nf-1, 1, nc-1);
+
+        aux = aux.substring(0, aux.length() - 2) + ".";
+        return aux;
+    }
 }
