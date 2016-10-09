@@ -5,6 +5,11 @@
  */
 package interfaz;
 
+import clase.Helper;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author aldair
@@ -28,7 +33,6 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -40,19 +44,6 @@ public class Principal extends javax.swing.JFrame {
         cmdManual = new javax.swing.JButton();
         cmdAuto = new javax.swing.JButton();
         cmdOperacion = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtColumnas1 = new javax.swing.JTextField();
-        txtFilas1 = new javax.swing.JTextField();
-        jPanel6 = new javax.swing.JPanel();
-        cmdLimpiar1 = new javax.swing.JButton();
-        cmdCrear1 = new javax.swing.JButton();
-        cmdManual1 = new javax.swing.JButton();
-        cmdAuto1 = new javax.swing.JButton();
-        cmdOperacion1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTablaInicial = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -61,15 +52,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 50)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Operaciones Matrices");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, 50));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Iniciales", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -148,92 +135,6 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 400, 110));
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 3, 50)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Operaciones Matrices");
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, 50));
-
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Iniciales", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14))); // NOI18N
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel5.setText("# De Filas");
-        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel6.setText("# De Columnas");
-        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
-
-        txtColumnas1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtColumnas1KeyTyped(evt);
-            }
-        });
-        jPanel5.add(txtColumnas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 60, 40));
-
-        txtFilas1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFilas1KeyTyped(evt);
-            }
-        });
-        jPanel5.add(txtFilas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 50, 40));
-
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 390, 90));
-
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14))); // NOI18N
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        cmdLimpiar1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        cmdLimpiar1.setText("Limpiar");
-        cmdLimpiar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdLimpiar1ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(cmdLimpiar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
-
-        cmdCrear1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        cmdCrear1.setText("Crear");
-        cmdCrear1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdCrear1ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(cmdCrear1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        cmdManual1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        cmdManual1.setText("Manual");
-        cmdManual1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdManual1ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(cmdManual1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
-
-        cmdAuto1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        cmdAuto1.setText("Automatico");
-        cmdAuto1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdAuto1ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(cmdAuto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
-
-        cmdOperacion1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        cmdOperacion1.setText("Operacion");
-        cmdOperacion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdOperacion1ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(cmdOperacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
-
-        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 400, 110));
-
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         tblTablaInicial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -258,7 +159,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 390, 210));
 
-        cmbCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LetraB", "LetraK", "LetraM", "LetraW", "LetraQ", "LetraJ", "LetraG", "LetraR", "FiguraUno", "FiguraDos", "Mas", "Rombo" }));
+        cmbCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "RecorridoUno", "RecorridoDos", "RecorridoTres", "RecorridoCuatro", "RecorridoCinco", " " }));
         jPanel1.add(cmbCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 100, 50));
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 14))); // NOI18N
@@ -270,7 +171,12 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel7.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 630, 60));
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 660, 110));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 490, 660, 110));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 50)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Operaciones Matrices");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -614,34 +520,6 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmdOperacionActionPerformed
 
-    private void txtColumnas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtColumnas1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtColumnas1KeyTyped
-
-    private void txtFilas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFilas1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFilas1KeyTyped
-
-    private void cmdLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmdLimpiar1ActionPerformed
-
-    private void cmdCrear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrear1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmdCrear1ActionPerformed
-
-    private void cmdManual1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdManual1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmdManual1ActionPerformed
-
-    private void cmdAuto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAuto1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmdAuto1ActionPerformed
-
-    private void cmdOperacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOperacion1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmdOperacion1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -680,27 +558,16 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbCombo;
     private javax.swing.JButton cmdAuto;
-    private javax.swing.JButton cmdAuto1;
     private javax.swing.JButton cmdCrear;
-    private javax.swing.JButton cmdCrear1;
     private javax.swing.JButton cmdLimpiar;
-    private javax.swing.JButton cmdLimpiar1;
     private javax.swing.JButton cmdManual;
-    private javax.swing.JButton cmdManual1;
     private javax.swing.JButton cmdOperacion;
-    private javax.swing.JButton cmdOperacion1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -708,9 +575,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable tblTablaInicial;
     private javax.swing.JTable tblTablaResultado;
     private javax.swing.JTextField txtColumnas;
-    private javax.swing.JTextField txtColumnas1;
     private javax.swing.JTextField txtFilas;
-    private javax.swing.JTextField txtFilas1;
     private javax.swing.JTextArea txtResultado;
     // End of variables declaration//GEN-END:variables
 }

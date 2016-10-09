@@ -5,10 +5,93 @@
  */
 package clase;
 
+import java.awt.Component;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author aldair
  */
 public class Helper {
+    public static int mensaje(Component ventana, String info, String titulo, int tipo) {
+        int retorno = -1;
+        switch (tipo) {
+            case 1:
+                JOptionPane.showMessageDialog(ventana, info, titulo, JOptionPane.WARNING_MESSAGE);
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(ventana, info, titulo, JOptionPane.ERROR_MESSAGE);
+                break;
+            case 3:
+                retorno = JOptionPane.showConfirmDialog(ventana, info, titulo, JOptionPane.YES_NO_OPTION);
+                break;
+        }
+        return retorno;
+    }
+
+    public static String recibirDatos(Component ventana, String info) {
+        String aux;
+        aux = JOptionPane.showInputDialog(ventana, info);
+        return aux;
+
+    }
+
+    public static void habilitarBotones(JButton[] botones) {
+        for (int i = 0; i < botones.length; i++) {
+            botones[i].setEnabled(true);
+
+        }
+    }
+
+    public static void deshabilitarBotones(JButton[] botones) {
+        for (int i = 0; i < botones.length; i++) {
+            botones[i].setEnabled(false);
+
+        }
+    }
+
+    public static void limpiarTabla(JTable tabla) {
+        int nFilas, nColumnas;
+        nFilas = tabla.getRowCount();
+        nColumnas = tabla.getColumnCount();
+
+        for (int i = 0; i < nFilas; i++) {
+            for (int j = 0; j < nColumnas; j++) {
+
+                tabla.setValueAt("", i, j);
+            }
+        }
+    }
+
+    public static void tablaPorDefecto(JTable tabla) {
+        DefaultTableModel tm;
+        tm = (DefaultTableModel) tabla.getModel();
+        tm.setColumnCount(0);
+        tm.setRowCount(0);
+
+    }
+    
+    public static int[][] PasarDatos(JTable tabla){
+        int nFilas, nColumnas;
+        
+        nFilas = tabla.getRowCount();
+        nColumnas = tabla.getColumnCount();
+        
+        int m[][] = new int[nFilas][nColumnas];
+        
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[0].length; j++) {
+                
+                m[nFilas][nColumnas] = (int) tabla.getValueAt(i, j);
+            }
+            
+        }
+        return m;
+    } 
+    
+    
     
 }
