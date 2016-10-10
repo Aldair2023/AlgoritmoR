@@ -440,13 +440,13 @@ public class Principal extends javax.swing.JFrame {
             break;
             /*
                 
-                */
+             */
             case 3: //Letra_W
-            txtResultado.setText(Helper.recorridoCuatro(tblTablaInicial));
-            break;
-            case 4: //Letra_Q
-            txtResultado.setText(Helper.recorridoCinco(tblTablaInicial));
-            if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
+                txtResultado.setText(Helper.recorridoCuatro(tblTablaInicial));
+                break;
+            case 4: //Recorrido_Cinco
+                txtResultado.setText(Helper.recorridoCinco(tblTablaInicial));
+                if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
                     Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
                     Helper.tablaPorDefecto(tblTablaInicial);
                     Helper.tablaPorDefecto(tblTablaResultado);
@@ -459,7 +459,7 @@ public class Principal extends javax.swing.JFrame {
                     Helper.habilitarBotones(botonesH);
                     Helper.deshabilitarBotones(botonesD);
                 }
-            break;
+                break;
             /*
             case 5: //Letra_J
             if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
