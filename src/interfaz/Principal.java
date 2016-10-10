@@ -421,9 +421,9 @@ public class Principal extends javax.swing.JFrame {
                     Helper.deshabilitarBotones(botonesD);
                 }
                 break;
-            /*
+            
             case 2: //recorrido_Tres
-            Helper.LetraM(tblTablaInicial, tblTablaResultado);
+            txtResultado.setText(Helper.recorridoTres(tblTablaInicial));
             if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
                 Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
                 Helper.tablaPorDefecto(tblTablaInicial);
@@ -438,9 +438,7 @@ public class Principal extends javax.swing.JFrame {
                 Helper.deshabilitarBotones(botonesD);
             }
             break;
-            /*
-                
-             */
+            
             case 3: //Letra_W
                 txtResultado.setText(Helper.recorridoCuatro(tblTablaInicial));
                 break;
@@ -460,96 +458,6 @@ public class Principal extends javax.swing.JFrame {
                     Helper.deshabilitarBotones(botonesD);
                 }
                 break;
-            /*
-            case 5: //Letra_J
-            if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
-                Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
-                Helper.tablaPorDefecto(tblTablaInicial);
-                Helper.tablaPorDefecto(tblTablaResultado);
-                txtFilas.setText("");
-                txtColumnas.setText("");
-                txtFilas.requestFocusInWindow();
-                cmbCombo.setSelectedIndex(0);
-                JButton botonesH[] = {cmdLimpiar, cmdCrear};
-                JButton botonesD[] = {cmdOperacion, cmdAuto, cmdManual};
-                Helper.habilitarBotones(botonesH);
-                Helper.deshabilitarBotones(botonesD);
-            }
-            Helper.LetraJ(tblTablaInicial, tblTablaResultado);
-            break;
-            case 6: //Letra_G
-            if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
-                Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
-                Helper.tablaPorDefecto(tblTablaInicial);
-                Helper.tablaPorDefecto(tblTablaResultado);
-                txtFilas.setText("");
-                txtColumnas.setText("");
-                txtFilas.requestFocusInWindow();
-                cmbCombo.setSelectedIndex(0);
-                JButton botonesH[] = {cmdLimpiar, cmdCrear};
-                JButton botonesD[] = {cmdOperacion, cmdAuto, cmdManual};
-                Helper.habilitarBotones(botonesH);
-                Helper.deshabilitarBotones(botonesD);
-            }
-            Helper.LetraG(tblTablaInicial, tblTablaResultado);
-            break;
-            case 7: //Letra_R
-            Helper.LetraR(tblTablaInicial, tblTablaResultado);
-            break;
-            case 8: //Letra_Figura_Uno
-            if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
-                Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
-                Helper.tablaPorDefecto(tblTablaInicial);
-                Helper.tablaPorDefecto(tblTablaResultado);
-                txtFilas.setText("");
-                txtColumnas.setText("");
-                txtFilas.requestFocusInWindow();
-                cmbCombo.setSelectedIndex(0);
-                JButton botonesH[] = {cmdLimpiar, cmdCrear};
-                JButton botonesD[] = {cmdOperacion, cmdAuto, cmdManual};
-                Helper.habilitarBotones(botonesH);
-                Helper.deshabilitarBotones(botonesD);
-            }
-            Helper.FiguraUno(tblTablaInicial, tblTablaResultado);
-            break;
-            case 9: //Letra_Figura_Dos
-            if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
-                Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
-                Helper.tablaPorDefecto(tblTablaInicial);
-                Helper.tablaPorDefecto(tblTablaResultado);
-                txtFilas.setText("");
-                txtColumnas.setText("");
-                txtFilas.requestFocusInWindow();
-                cmbCombo.setSelectedIndex(0);
-                JButton botonesH[] = {cmdLimpiar, cmdCrear};
-                JButton botonesD[] = {cmdOperacion, cmdAuto, cmdManual};
-                Helper.habilitarBotones(botonesH);
-                Helper.deshabilitarBotones(botonesD);
-            }
-            Helper.FiguraDos(tblTablaInicial, tblTablaResultado);
-            break;
-            case 10: //Figura_Mas
-            Helper.Mas(tblTablaInicial, tblTablaResultado);
-            break;
-            case 11: //Letra_Rombo
-            if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
-                Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
-                Helper.tablaPorDefecto(tblTablaInicial);
-                Helper.tablaPorDefecto(tblTablaResultado);
-                txtFilas.setText("");
-                txtColumnas.setText("");
-                txtFilas.requestFocusInWindow();
-                cmbCombo.setSelectedIndex(0);
-                JButton botonesH[] = {cmdLimpiar, cmdCrear};
-                JButton botonesD[] = {cmdOperacion, cmdAuto, cmdManual};
-                Helper.habilitarBotones(botonesH);
-                Helper.deshabilitarBotones(botonesD);
-            }
-            Helper.Rombo(tblTablaInicial, tblTablaResultado);
-            break;
-/*
-            
-             */
         }
     }//GEN-LAST:event_cmdOperacionActionPerformed
 

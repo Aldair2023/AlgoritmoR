@@ -189,6 +189,27 @@ public class Helper {
 
         aux = aux.substring(0, aux.length() - 2) + ".";
         return aux;
+        
+    }
+    public static String recorridoTres(JTable tabla) {
+        int m[][] = PasarDatos(tabla);
+        int nf = m.length;
+        int nc = m[0].length;
+        String aux = "";
+
+        aux = aux + Helper.recorridoHaciaDerecha(m, nf/2, nc/2, (nc/2+1));
+        aux = aux + Helper.recorridoHaciaAbajo(m, (nc/2+1), nf/2+1, nf/2+1);
+        aux = aux + Helper.recorridoHaciaIzquierda(m, (nf/2+1), nc/2, (nc/2-1));
+        aux = aux + Helper.recorridoHaciaArriba(m, nc/2-1, nf/2, nf/2-1);
+        aux = aux + Helper.recorridoHaciaDerecha(m, nf/2-1, nc/2, nc-1);
+        aux = aux + Helper.recorridoHaciaAbajo(m, nc-1, nf/2, nf-1);
+        aux = aux + Helper.recorridoHaciaIzquierda(m, nf-1, nc/2+1, 0);
+        aux = aux + Helper.recorridoHaciaArriba(m, 0, nf/2+1, 0);
+        aux = aux + Helper.recorridoHaciaDerecha(m, 0, nc/2-1, nc-1);
+        
+
+        aux = aux.substring(0, aux.length() - 2) + ".";
+        return aux;
     }
     
     public static String recorridoCuatro(JTable tabla) {
