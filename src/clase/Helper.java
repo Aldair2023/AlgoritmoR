@@ -196,7 +196,7 @@ public class Helper {
         int nf = m.length;
         int nc = m[0].length;
         String aux = "";
-
+        
         aux = aux + Helper.recorridoHaciaDerecha(m, nf/2, nc/2, (nc/2+1));
         aux = aux + Helper.recorridoHaciaAbajo(m, (nc/2+1), nf/2+1, nf/2+1);
         aux = aux + Helper.recorridoHaciaIzquierda(m, (nf/2+1), nc/2, (nc/2-1));
@@ -241,5 +241,5 @@ public class Helper {
         aux = aux.substring(0, aux.length() - 2) + ".";
         return aux;
     }
-    
+   
 }
