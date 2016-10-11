@@ -206,7 +206,6 @@ public class Helper {
         aux = aux + Helper.recorridoHaciaIzquierda(m, nf-1, nc/2+1, 0);
         aux = aux + Helper.recorridoHaciaArriba(m, 0, nf/2+1, 0);
         aux = aux + Helper.recorridoHaciaDerecha(m, 0, nc/2-1, nc-1);
-        
 
         aux = aux.substring(0, aux.length() - 2) + ".";
         return aux;
