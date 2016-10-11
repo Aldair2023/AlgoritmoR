@@ -389,6 +389,23 @@ public class Principal extends javax.swing.JFrame {
 
         switch (op) {
             case 0: //Recorrido_Uno
+                txtResultado.setText(Helper.recorridoDos(tblTablaInicial));
+                if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
+                    Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
+                    Helper.tablaPorDefecto(tblTablaInicial);
+                    Helper.tablaPorDefecto(tblTablaResultado);
+                    txtFilas.setText("");
+                    txtColumnas.setText("");
+                    txtResultado.setText("");
+                    txtFilas.requestFocusInWindow();
+                    cmbCombo.setSelectedIndex(0);
+                    JButton botonesH[] = {cmdLimpiar, cmdCrear};
+                    JButton botonesD[] = {cmdOperacion, cmdAuto, cmdManual};
+                    Helper.habilitarBotones(botonesH);
+                    Helper.deshabilitarBotones(botonesD);
+                }
+                break;
+            case 1: //Recorrido_Dos
                 txtResultado.setText(Helper.recorridoUno(tblTablaInicial));
                 if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
                     Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor los recorridos requeridos", "Aviso", 1);
@@ -405,23 +422,6 @@ public class Principal extends javax.swing.JFrame {
                     Helper.deshabilitarBotones(botonesD);
                 }
                 break;
-            case 1: //Recorrido_Dos
-                txtResultado.setText(Helper.recorridoDos(tblTablaInicial));
-                if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
-                    Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
-                    Helper.tablaPorDefecto(tblTablaInicial);
-                    Helper.tablaPorDefecto(tblTablaResultado);
-                    txtFilas.setText("");
-                    txtColumnas.setText("");
-                    txtFilas.requestFocusInWindow();
-                    cmbCombo.setSelectedIndex(0);
-                    JButton botonesH[] = {cmdLimpiar, cmdCrear};
-                    JButton botonesD[] = {cmdOperacion, cmdAuto, cmdManual};
-                    Helper.habilitarBotones(botonesH);
-                    Helper.deshabilitarBotones(botonesD);
-                }
-                break;
-            
             case 2: //recorrido_Tres
             txtResultado.setText(Helper.recorridoTres(tblTablaInicial));
             if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
@@ -430,6 +430,7 @@ public class Principal extends javax.swing.JFrame {
                 Helper.tablaPorDefecto(tblTablaResultado);
                 txtFilas.setText("");
                 txtColumnas.setText("");
+                txtResultado.setText("");
                 txtFilas.requestFocusInWindow();
                 cmbCombo.setSelectedIndex(0);
                 JButton botonesH[] = {cmdLimpiar, cmdCrear};
@@ -450,6 +451,7 @@ public class Principal extends javax.swing.JFrame {
                     Helper.tablaPorDefecto(tblTablaResultado);
                     txtFilas.setText("");
                     txtColumnas.setText("");
+                    txtResultado.setText("");
                     txtFilas.requestFocusInWindow();
                     cmbCombo.setSelectedIndex(0);
                     JButton botonesH[] = {cmdLimpiar, cmdCrear};
@@ -458,6 +460,7 @@ public class Principal extends javax.swing.JFrame {
                     Helper.deshabilitarBotones(botonesD);
                 }
                 break;
+                
         }
     }//GEN-LAST:event_cmdOperacionActionPerformed
 
